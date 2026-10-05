@@ -1,0 +1,8 @@
+{
+  "name": "HOTel OS",
+  "description": "Commercial Hotel Management Operating System - HOTel OS, Kubwa, Abuja, Nigeria. Complete PMS, Front Desk, Reservations, POS, Housekeeping, Inventory, Finance, and Analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

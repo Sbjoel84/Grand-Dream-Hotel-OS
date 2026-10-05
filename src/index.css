@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.25);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.4);
+}
+
+/* Light Mode Overrides */
+html.light body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html.light .bg-neutral-950 {
+  background-color: #f8fafc !important;
+}
+
+html.light .bg-neutral-900 {
+  background-color: #ffffff !important;
+}
+
+html.light .bg-neutral-900\/60,
+html.light .bg-neutral-900\/70,
+html.light .bg-neutral-900\/80,
+html.light .bg-neutral-900\/90,
+html.light .bg-neutral-900\/95 {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+}
+
+html.light .bg-neutral-950\/20,
+html.light .bg-neutral-950\/40,
+html.light .bg-neutral-950\/60,
+html.light .bg-neutral-950\/70 {
+  background-color: #f1f5f9 !important;
+}
+
+html.light .bg-neutral-800,
+html.light .bg-neutral-800\/40,
+html.light .bg-neutral-800\/50,
+html.light .bg-neutral-800\/60,
+html.light .bg-neutral-800\/80 {
+  background-color: #f1f5f9 !important;
+}
+
+html.light .border-neutral-800,
+html.light .border-neutral-800\/60,
+html.light .border-neutral-800\/80,
+html.light .border-neutral-700,
+html.light .border-neutral-700\/50,
+html.light .border-neutral-700\/60,
+html.light .border-neutral-700\/80 {
+  border-color: #e2e8f0 !important;
+}
+
+html.light .divide-neutral-800,
+html.light .divide-neutral-800\/60,
+html.light .divide-neutral-800\/80 {
+  border-color: #e2e8f0 !important;
+}
+
+html.light .text-white,
+html.light .text-neutral-100,
+html.light .text-neutral-200 {
+  color: #0f172a !important;
+}
+
+html.light .text-neutral-300 {
+  color: #334155 !important;
+}
+
+html.light .text-neutral-400 {
+  color: #64748b !important;
+}
+
+html.light .text-neutral-500 {
+  color: #94a3b8 !important;
+}
+
+html.light input,
+html.light select,
+html.light textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+html.light aside {
+  background-color: #ffffff !important;
+  border-right-color: #e2e8f0 !important;
+}
+
+html.light header {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-bottom-color: #e2e8f0 !important;
+}
+
+html.light [role="dialog"] {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Print styling for receipts and folios */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .no-print, header, aside, nav, .print-hide {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .printable-area {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+  }
+
+  @page {
+    size: auto;
+    margin: 12mm;
+  }
+}
+
+.print-only {
+  display: none;
+}
