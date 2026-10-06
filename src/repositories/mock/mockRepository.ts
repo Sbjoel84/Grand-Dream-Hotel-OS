@@ -1012,6 +1012,22 @@ export class MockHotelRepository implements IHotelRepository {
     return [...this.users];
   }
 
+  async createUser(data: Omit<UserProfile, 'id' | 'createdAt' | 'lastLogin'>): Promise<UserProfile> {
+    const email = data.email.trim().toLowerCase();
+    if (this.users.some((u) => u.email.toLowerCase() === email)) {
+      throw new Error('A staff member with this email already exists');
+    }
+    const newUser: UserProfile = {
+      ...data,
+      email,
+      id: `user-${Date.now()}`,
+      createdAt: new Date().toISOString(),
+    };
+    this.users.push(newUser);
+    this.sync('users', this.users);
+    return newUser;
+  }
+
   async updateUser(id: string, updates: Partial<UserProfile>): Promise<UserProfile> {
     const index = this.users.findIndex((u) => u.id === id);
     if (index === -1) throw new Error('User not found');

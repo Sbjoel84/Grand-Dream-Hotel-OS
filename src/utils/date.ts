@@ -1,5 +1,5 @@
 /**
- * HOTel OS - Date & Time Utilities
+ * Grand Dream Hotel - Date & Time Utilities
  * Formatted consistently for Nigerian Hotel Operations
  */
 

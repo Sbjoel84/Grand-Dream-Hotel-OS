@@ -26,6 +26,16 @@ function getStoredUser(): UserProfile | null {
   return INITIAL_USERS[0];
 }
 
+function getMockUsers(): UserProfile[] {
+  try {
+    const raw = localStorage.getItem('hotel_os_users');
+    if (raw) return JSON.parse(raw);
+  } catch (e) {
+    console.error(e);
+  }
+  return INITIAL_USERS;
+}
+
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: getStoredUser(),
   isAuthenticated: Boolean(getStoredUser()),
@@ -53,10 +63,15 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         }
       }
 
-      // Mock user login by email or role match
-      const matched = INITIAL_USERS.find(
+      // Mock user login by email or role match (includes staff added via Admin Panel)
+      const matched = getMockUsers().find(
         (u) => u.email.toLowerCase() === email.toLowerCase() || u.role === (email as UserRole)
       );
+
+      if (matched && matched.isActive === false) {
+        set({ isLoading: false });
+        return false;
+      }
 
       const targetUser = matched || {
         ...INITIAL_USERS[0],

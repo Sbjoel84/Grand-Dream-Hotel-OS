@@ -1,5 +1,5 @@
 /**
- * HOTel OS - Currency Utility
+ * Grand Dream Hotel - Currency Utility
  * Nigerian Naira (₦ / NGN) Formatter
  */
 
